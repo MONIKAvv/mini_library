@@ -9,14 +9,14 @@ export default function ShowBookDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/books/${id}`)
+      .get(`${import.meta.env.VITE_API_BASE_URL}/books/${id}`)
       .then((res) => setBook(res.data))
       .catch((err) => console.log(err));
   }, [id]);
 
   const onDelete = (id) => {
     axios
-      .delete(`http://localhost:8000/books/${id}`)
+      .delete(`${import.meta.env.VITE_API_BASE_URL}/books/${id}`)
       .then(() => navigate("/"))
       .catch((err) => console.log("This Book can't be Deleted!", err));
   };

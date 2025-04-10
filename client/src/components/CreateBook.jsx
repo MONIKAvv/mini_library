@@ -23,7 +23,7 @@ export default function CreateBook() {
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/books", book)
+      .post(`${import.meta.env.VITE_API_BASE_URL}/books`, book)
       .then((res) => {
         setBook({
           title: "",

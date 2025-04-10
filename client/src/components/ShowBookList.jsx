@@ -8,7 +8,7 @@ export default function ShowBookList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/books")
+      .get(`${import.meta.env.VITE_API_BASE_URL}/books`)
       .then((res) => {
         setBooks(res.data);
       })

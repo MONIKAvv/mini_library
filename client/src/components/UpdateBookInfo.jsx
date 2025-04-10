@@ -15,7 +15,7 @@ export default function UpdateBookInfo() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/books/${id}`).then((res) => {
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/books/${id}`).then((res) => {
       setBook({title: res.data.title,
         isbn: res.data.isbn,
         author: res.data.author,
@@ -43,7 +43,7 @@ export default function UpdateBookInfo() {
       publisher: book.publisher
     }
 
-    axios.put(`http://localhost:8000/books/${id}`, data).then((res) => {
+    axios.put(`${import.meta.env.VITE_API_BASE_URL}/books/${id}`, data).then((res) => {
       navigate(`/show-book/${id}`);
     }).catch((err) => {
       console.log("Book Not Updated!", err);
